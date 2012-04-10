@@ -61,3 +61,15 @@
 [submodule "_vim/bundle/syntastic"]
 	path = _vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "_vim/bundle/browser"]
+	path = _vim/bundle/browser
+	url = https://github.com/mjbrownie/browser.vim
+[submodule "_vim/bundle/swapit"]
+	path = _vim/bundle/swapit
+	url = git@github.com:mjbrownie/swapit.git
+[submodule "_vim/bundle/commentary"]
+	path = _vim/bundle/commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "_vim/bundle/relativize"]
+	path = _vim/bundle/relativize
+	url = git@github.com:mjbrownie/vim-relativize.git
