@@ -1,69 +1,56 @@
-xterm*background: black
-xterm*foreground: white
 
-URxvt.buffered:         true
-URxvt.background:       black
-URxvt.foreground:       white
-URxvt.cursorColor:      green
-URxvt.perl-ext-common:  default,matcher
-URxvt.urlLauncher:      /usr/bin/chromium
-URxvt.matcher.button:   1
-URxvt.scrollBar:        false
+    URxvt*termName: rxvt
 
-! urxvt defaults:
-! color0       (black)            = Black
-! color1       (red)              = Red3
-! color2       (green)            = Green3
-! color3       (yellow)           = Yellow3
-! color4       (blue)             = Blue3
-! color5       (magenta)          = Magenta3
-! color6       (cyan)             = Cyan3
-! color7       (white)            = AntiqueWhite
-! color8       (bright black)     = Grey25
-! color9       (bright red)       = Red
-! color10      (bright green)     = Green
-! color11      (bright yellow)    = Yellow
-! color12      (bright blue)      = Blue
-! color13      (bright magenta)   = Magenta
-! color14      (bright cyan)      = Cyan
-! color15      (bright white)     = White
+    ## borderless and no scrollbar
+    URxvt*scrollBar_right: false
+    URxvt*scrollBar: false
+    URxvt*borderLess: false
 
-! Black
-!URxvt.color1:          Black
-! Red
-URxvt.color1:           brown2
-! Green
-URxvt.color2:           SpringGreen2
-! Yellow
-URxvt.color3:           yellow2
-! Blue
-URxvt.color4:           DeepSkyBlue2
-! Magenta
-URxvt.color5:           magenta2
-! Cyan
-URxvt.color6:           DarkSlateGray1
-! White
-URxvt.color7:           MintCream
-! Bright black
-!URxvt.color8:          Grey25
-! Bright red
-URxvt.color9:           firebrick1
-! Bright green
-URxvt.color10:          SpringGreen1
-! Bright yellow
-URxvt.color11:          yellow1
-! Bright blue
-URxvt.color12:          DeepSkyBlue1
-! Bright magenta
-URxvt.color13:          magenta1
-! Bright cyan
-URxvt.color14:          cyan1
-! Bright white
-!URxvt.color15:         White
+    ## teh transparency stuff
+    URxvt*inheritPixmap: true
+    URxvt*tintColor: white
+    URxvt*shading: 100
 
-! Alternatives
-! Blue: lighter (looks closer to cyan, but it is an option if deepsky is too
-! dark to read (it might be a good idea to make symlinks green))
-!URxvt.color4:          SteelBlue2
-!URxvt.color12:         SteelBlue1
-!URxvt.color6:          cyan1
+    ##
+    ## These 3 lines make links clickable
+    ##
+    URxvt.urlLauncher: firefox
+    URxvt.matcher.button: 1
+    URxvt.perl-ext-common: matcher,readline
+
+    ## geometry and font
+    #URxvt*geometry: 80×15
+    URxvt*font: xft:DejaVu Sans Mono:pixelsize=11:antialias=false:hinting=true
+
+    ## change default colors
+    URxvt*background: #000000
+    URxvt*foreground: #A8A8A8
+    URxvt*color0: #000000
+    URxvt*color1: #A80000
+
+    ## URxvt*color2: #00A800
+    URxvt*color2: #ED254F
+
+    URxvt*color3: #A85400
+    ## main bars in irssi
+    URxvt*color4: #020202
+    URxvt*color5: #A800A8
+    URxvt*color6: #00A8A8
+    URxvt*color7: #A8A8A8
+    URxvt*color8: #545054
+    URxvt*color9: #F85450
+
+    ## Time in Irssi
+    URxvt*color10: #ED254F
+    ## URxvt*color10: #50FC50
+
+    ## URxvt*color11: #F2FC50
+    URxvt*color11: #ED254F
+
+    URxvt*color12: #5054F8
+
+    URxvt*color13: #ED254F
+    ## URxvt*color13: #F854F8
+
+    URxvt*color14: #50FCF8
+    URxvt*color15: #F8FCF8
