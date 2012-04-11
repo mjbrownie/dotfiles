@@ -76,3 +76,6 @@
 [submodule "_vim/bundle/relafile"]
 	path = _vim/bundle/relafile
 	url = git@github.com:mjbrownie/vim-relafile.git
+[submodule "_vim/bundle/snipmate_for_django"]
+	path = _vim/bundle/snipmate_for_django
+	url = git@github.com:mjbrownie/snipmate_for_django.git
