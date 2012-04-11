@@ -73,3 +73,6 @@
 [submodule "_vim/bundle/relativize"]
 	path = _vim/bundle/relativize
 	url = git@github.com:mjbrownie/vim-relativize.git
+[submodule "_vim/bundle/relafile"]
+	path = _vim/bundle/relafile
+	url = git@github.com:mjbrownie/vim-relafile.git
