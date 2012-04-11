@@ -79,3 +79,6 @@
 [submodule "_vim/bundle/snipmate_for_django"]
 	path = _vim/bundle/snipmate_for_django
 	url = git@github.com:mjbrownie/snipmate_for_django.git
+[submodule "_vim/bundle/pythoncomplete"]
+	path = _vim/bundle/pythoncomplete
+	url = git@github.com:mjbrownie/pythoncomplete.vim.git
