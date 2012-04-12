@@ -82,3 +82,6 @@
 [submodule "_vim/bundle/pythoncomplete"]
 	path = _vim/bundle/pythoncomplete
 	url = git@github.com:mjbrownie/pythoncomplete.vim.git
+[submodule "_vim/bundle/zencoding"]
+	path = _vim/bundle/zencoding
+	url = git://github.com/mattn/zencoding-vim.git
