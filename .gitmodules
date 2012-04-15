@@ -85,3 +85,6 @@
 [submodule "_vim/bundle/zencoding"]
 	path = _vim/bundle/zencoding
 	url = git://github.com/mattn/zencoding-vim.git
+[submodule "_zsh/git-prompt"]
+	path = _zsh/git-prompt
+	url = https://github.com/olivierverdier/zsh-git-prompt
