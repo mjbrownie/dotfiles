@@ -91,3 +91,6 @@
 [submodule "_vim/bundle/dirdiff"]
 	path = _vim/bundle/dirdiff
 	url = https://github.com/vim-scripts/DirDiff.vim.git
+[submodule "_vim/bundle/selfdot"]
+	path = _vim/bundle/selfdot
+	url = https://github.com/narfdotpl/selfdot.vim.git
