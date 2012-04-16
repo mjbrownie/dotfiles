@@ -85,3 +85,6 @@
 [submodule "_vim/bundle/zencoding"]
 	path = _vim/bundle/zencoding
 	url = git://github.com/mattn/zencoding-vim.git
+[submodule "_vim/bundle/pythonhelper"]
+	path = _vim/bundle/pythonhelper
+	url = https://github.com/Finkregh/pythonhelper.git

@@ -51,7 +51,7 @@
 " Shortcuts
 " ==========================================================
 set nocompatible              " Don't be compatible with vi
-let mapleader=","             " change the leader to be a comma vs slash
+"let mapleader=","             " change the leader to be a comma vs slash
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
@@ -140,12 +140,12 @@ call pathogen#helptags()
 syntax on                     " syntax highlighing
 filetype on                   " try to detect filetypes
 filetype plugin indent on     " enable loading indent file for filetype
-set number                    " Display line numbers
+"set number                    " Display line numbers
 set numberwidth=1             " using only 1 column (and 1 space) while possible
 set background=dark           " We are using dark background in vim
 set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
-set wildmode=full             " <Tab> cycles between all matching choices.
+set wildmode=longest,list,full " <Tab> cycles between all matching choices.
 
 " don't bell or blink
 set noerrorbells
@@ -220,7 +220,8 @@ set laststatus=2            " Always show statusline, even if only 1 window.
 set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
 
 " displays tabs with :set list & displays when a line runs off-screen
-set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
+" set listchars=tab:>-,eol:$,trail:-,precedes:<,extends:>
+set listchars=tab:>-,trail:-,nbsp:+
 set list
 
 """ Searching and Patterns
