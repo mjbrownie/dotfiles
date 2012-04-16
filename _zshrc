@@ -1,0 +1,3 @@
+source ~/.zsh/git-prompt/zshrc.sh
+# an example prompt
+PROMPT='mac %~%b$(git_super_status) %# '

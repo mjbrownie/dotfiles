@@ -85,6 +85,21 @@
 [submodule "_vim/bundle/zencoding"]
 	path = _vim/bundle/zencoding
 	url = git://github.com/mattn/zencoding-vim.git
+[submodule "_zsh/git-prompt"]
+	path = _zsh/git-prompt
+	url = https://github.com/olivierverdier/zsh-git-prompt
+[submodule "_vim/bundle/dirdiff"]
+	path = _vim/bundle/dirdiff
+	url = https://github.com/vim-scripts/DirDiff.vim.git
+[submodule "_vim/bundle/selfdot"]
+	path = _vim/bundle/selfdot
+	url = https://github.com/narfdotpl/selfdot.vim.git
+[submodule "_vim/bundle/autocomplpop"]
+	path = _vim/bundle/autocomplpop
+	url = https://github.com/vim-scripts/AutoComplPop.git
+[submodule "_vim/bundle/csapprox"]
+	path = _vim/bundle/csapprox
+	url = https://github.com/godlygeek/csapprox.git
 [submodule "_vim/bundle/pythonhelper"]
 	path = _vim/bundle/pythonhelper
 	url = https://github.com/Finkregh/pythonhelper.git
