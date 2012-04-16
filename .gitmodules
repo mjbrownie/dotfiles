@@ -87,7 +87,7 @@
 	url = git://github.com/mattn/zencoding-vim.git
 [submodule "_zsh/git-prompt"]
 	path = _zsh/git-prompt
-	url = https://github.com/olivierverdier/zsh-git-prompt
+	url = https://github.com/olivierverdier/zsh-git-prompt.git
 [submodule "_vim/bundle/dirdiff"]
 	path = _vim/bundle/dirdiff
 	url = https://github.com/vim-scripts/DirDiff.vim.git
