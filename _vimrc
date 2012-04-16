@@ -155,6 +155,10 @@ set vb t_vb=
 set wildignore+=*.o,*.obj,.git,*.pyc
 set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
+"local virtualenv env convention
+set wildignore+=env/bin,env/bin,env/include,env/share
+set wildignore+=env/local,env/lib
+
 
 set grepprg=ack         " replace the default grep program with ack
 
