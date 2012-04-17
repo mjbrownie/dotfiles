@@ -75,7 +75,7 @@ myDzenGenOpts = "-fg '" ++ myFgColor ++ "' -bg '" ++ myBgColor ++ "' -fn '" ++ m
  
 -- Status Bar
 myStatusBar = "dzen2 -w 665 -ta l " ++ myDzenGenOpts
-myLoadBar = "tail -f ~/.server_monitor/fifo | dzen2 -ta r "
+myLoadBar = "tail -f ~/.zen_load/fifo | dzen2 -ta r "
  
 -- Conky Bar
 myConkyBar = "conky -c ~/.conky_bar | dzen2 -x 660 -w 365 " ++ myDzenGenOpts
@@ -138,7 +138,9 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   -- Use shellPrompt instead of default dmenu
   ((modm, xK_p), shellPrompt myXPConfig),
   -- Do not leave useless conky, dzen and xxkb after restart
-  ((modm, xK_q), spawn "killall conky dzen2 xxkb; xmonad --recompile; xmonad --restart")
+  ((modm, xK_q), spawn "killall conky dzen2 xxkb; xmonad --recompile; xmonad --restart"),
+  ((modm, xK_o), spawn "gvim"),
+  ((modm, xK_i), spawn "chromium-browser")
    ]
  
 -- Dzen config
