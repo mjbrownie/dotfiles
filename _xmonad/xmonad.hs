@@ -140,7 +140,9 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   -- Do not leave useless conky, dzen and xxkb after restart
   ((modm, xK_q), spawn "killall conky dzen2 xxkb; xmonad --recompile; xmonad --restart"),
   ((modm, xK_o), spawn "gvim"),
-  ((modm, xK_i), spawn "chromium-browser")
+  ((modm, xK_i), spawn "chromium-browser"),
+  ((modm, xK_F12), spawn "amixer -q sset Headphone 5%+"),
+  ((modm, xK_F11), spawn "amixer -q sset Headphone 5%-")
    ]
  
 -- Dzen config
