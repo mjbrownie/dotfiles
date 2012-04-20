@@ -102,7 +102,7 @@
 	url = https://github.com/godlygeek/csapprox.git
 [submodule "_vim/bundle/pythonhelper"]
 	path = _vim/bundle/pythonhelper
-	url = https://github.com/Finkregh/pythonhelper.git
+	url = https://github.com/mjbrownie/pythonhelper.git
 [submodule "_vim/bundle/textobj"]
 	path = _vim/bundle/textobj
 	url = https://github.com/kana/vim-textobj-user.git
