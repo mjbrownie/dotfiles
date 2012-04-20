@@ -4,3 +4,6 @@
 _vim/ropevim/src*
 _vim/ropevim/pylibs*
 _xmonad/history
+_xmonad/xmonad-i386-linux
+_xmonad/xmonad.errors
+_xmonad/xmonad.hi

@@ -67,6 +67,7 @@ endfu
 
 nmap <leader>sb :call SplitScroll()<CR>
 
+set t_Co=256
 
 "<CR><C-w>l<C-f>:set scrollbind<CR>
 
@@ -100,11 +101,11 @@ nmap <leader>cc :cclose<CR>
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
 
-" ctrl-jklm  changes to that split
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+" ctrl-<j,k> moves current line/block up/down
+nnoremap <c-k> ddkP
+nnoremap <c-j> ddp
+vnoremap <c-j> dp'[V']
+vnoremap <c-k> dkP'[V']
 
 " and lets make these all work in insert mode too ( <C-O> makes next cmd
 "  happen as if in command mode )
@@ -238,13 +239,11 @@ set incsearch               " Incrementally search while typing a /regex
 """" Display
 if has("gui_running")
     colorscheme desert
-    " Remove menu bar
-    set guioptions-=m
-
-    " Remove toolbar
-    set guioptions-=T
+    
+    set guioptions+=aegimtTLlRrb
+    set guioptions-=aegimtTLlRrb
 else
-    colorscheme torte
+    colorscheme desert
 endif
 
 " Paste from clipboard
@@ -296,11 +295,12 @@ py << EOF
 import os.path
 import sys
 import vim
-if 'VIRTUALENV' in os.environ:
+if 'VIRTUAL_ENV' in os.environ:
     project_base_dir = os.environ['VIRTUAL_ENV']
     sys.path.insert(0, project_base_dir)
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
+    os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 EOF
 
 " Load up virtualenv's vimrc if it exists
@@ -309,3 +309,21 @@ if filereadable($VIRTUAL_ENV . '/.vimrc')
 endif
 
 set colorcolumn=79
+
+" Diff 
+" 
+function! s:diff_maps()
+    if &diff
+        nnoremap <buffer> hhh :diffget 2//<cr>
+        nnoremap <buffer> lll :diffget 3//<cr>
+    endif
+endfunction
+
+au BufEnter * call s:diff_maps()
+
+"Esoteric maps
+"kk - move to the end of the line (how often do you type trekking?)
+"jj - move to the next line (indents)
+inoremap jj <esc>o
+inoremap kk <esc> a
+inoremap KK <esc>A
