@@ -321,4 +321,9 @@ endfunction
 
 au BufEnter * call s:diff_maps()
 
-
+"Esoteric maps
+"kk - move to the end of the line (how often do you type trekking?)
+"jj - move to the next line (indents)
+inoremap jj <esc>o
+inoremap kk <esc> a
+inoremap KK <esc>A
