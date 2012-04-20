@@ -67,6 +67,7 @@ endfu
 
 nmap <leader>sb :call SplitScroll()<CR>
 
+set t_Co=256
 
 "<CR><C-w>l<C-f>:set scrollbind<CR>
 
@@ -242,7 +243,7 @@ if has("gui_running")
     set guioptions+=aegimtTLlRrb
     set guioptions-=aegimtTLlRrb
 else
-    colorscheme torte
+    colorscheme desert
 endif
 
 " Paste from clipboard
