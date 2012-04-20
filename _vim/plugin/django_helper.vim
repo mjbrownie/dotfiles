@@ -6,6 +6,9 @@
 "if !findfile("settings.py") || !has("python")
 "    finish
 "endif
+if !has('python')
+    finish
+endif
 "Global variables defaults {{{1
 if !exists('g:djhelp_split_command')
     let g:split_command = 'vert split'

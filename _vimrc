@@ -77,6 +77,8 @@ cmap W! w !sudo tee % >/dev/null
 " Toggle the tasklist
 map <leader>td <Plug>TaskList
 
+"
+let g:CSApprox_verbose_level =0
 " Run pep8
 let g:pep8_map='<leader>8'
 
@@ -291,6 +293,7 @@ let g:pyflakes_use_quickfix = 0
 
 
 " Add the virtualenv's site-packages to vim path
+if has("python")
 py << EOF
 import os.path
 import sys
@@ -303,12 +306,16 @@ if 'VIRTUAL_ENV' in os.environ:
     os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 EOF
 
+
 " Load up virtualenv's vimrc if it exists
 if filereadable($VIRTUAL_ENV . '/.vimrc')
     source $VIRTUAL_ENV/.vimrc
 endif
+endif
 
-set colorcolumn=79
+if version >= 703
+    set colorcolumn=79
+endif
 
 " Diff 
 " 
