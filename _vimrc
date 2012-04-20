@@ -320,3 +320,4 @@ endfunction
 
 au BufEnter * call s:diff_maps()
 
+

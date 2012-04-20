@@ -115,3 +115,6 @@
 [submodule "_vim/bundle/html_textobjects"]
 	path = _vim/bundle/html_textobjects
 	url = git@github.com:mjbrownie/html-textobjects.git
+[submodule "_vim/bundle/matchit"]
+	path = _vim/bundle/matchit
+	url = https://github.com/mirell/vim-matchit.git
