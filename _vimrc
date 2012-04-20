@@ -100,11 +100,11 @@ nmap <leader>cc :cclose<CR>
 " for when we forget to use sudo to open/edit a file
 cmap w!! w !sudo tee % >/dev/null
 
-" ctrl-jklm  changes to that split
-map <c-j> <c-w>j
-map <c-k> <c-w>k
-map <c-l> <c-w>l
-map <c-h> <c-w>h
+" ctrl-<j,k> moves current line/block up/down
+nnoremap <c-k> ddkP
+nnoremap <c-j> ddp
+vnoremap <c-j> dp'[V']
+vnoremap <c-k> dkP'[V']
 
 " and lets make these all work in insert mode too ( <C-O> makes next cmd
 "  happen as if in command mode )
