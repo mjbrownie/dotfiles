@@ -334,3 +334,6 @@ au BufEnter * call s:diff_maps()
 inoremap jj <esc>o
 inoremap kk <esc> a
 inoremap KK <esc>A
+
+"{%  %} tweak for htmldjango
+au FileType htmldjango inoremap {% {% %}<left><left><left>
