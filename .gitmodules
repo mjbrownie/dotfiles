@@ -127,3 +127,6 @@
 [submodule "_vim/bundle/html5"]
 	path = _vim/bundle/html5
 	url = https://github.com/othree/html5.vim.git
+[submodule "_vim/bundle/relafile_django"]
+	path = _vim/bundle/relafile_django
+	url = git@github.com:mjbrownie/vim-relafile-django.git
