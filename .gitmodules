@@ -130,3 +130,6 @@
 [submodule "_vim/bundle/relafile_django"]
 	path = _vim/bundle/relafile_django
 	url = git@github.com:mjbrownie/vim-relafile-django.git
+[submodule "_vim/bundle/surround_django"]
+	path = _vim/bundle/surround_django
+	url = git@github.com:mjbrownie/vim-surround_django.git
