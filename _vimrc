@@ -298,7 +298,6 @@ py << EOF
 import os.path
 import sys
 import vim
-from glob import glob
 
 if 'VIRTUAL_ENV' in os.environ:
     project_base_dir = os.environ['VIRTUAL_ENV']
