@@ -141,6 +141,7 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   ((modm, xK_q), spawn "killall conky dzen2 xxkb; xmonad --recompile; xmonad --restart"),
   ((modm, xK_o), spawn "gvim"),
   ((modm, xK_i), spawn "chromium-browser"),
+  ((modm, xK_u), spawn "banshee"),
   ((modm, xK_F12), spawn "amixer -q sset Headphone 5%+"),
   ((modm, xK_F11), spawn "amixer -q sset Headphone 5%-")
    ]

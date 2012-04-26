@@ -51,10 +51,16 @@
 " Shortcuts
 " ==========================================================
 set nocompatible              " Don't be compatible with vi
+
 "let mapleader=","             " change the leader to be a comma vs slash
 
 " Seriously, guys. It's not like :W is bound to anything anyway.
+try
 command! W :w
+catch
+"in a very stripped down version (eg crontab VISUAL)
+finish
+endtry
 
 fu! SplitScroll()
     :wincmd v
@@ -80,7 +86,7 @@ map <leader>td <Plug>TaskList
 "
 let g:CSApprox_verbose_level =0
 " Run pep8
-let g:pep8_map='<leader>8'
+let g:pep8_map='<leader>pep'
 
 " run py.test's
 nmap <silent><Leader>tf <Esc>:Pytest file<CR>
@@ -218,7 +224,8 @@ set ffs=unix,dos,mac        " Try recognizing dos, unix, and mac line endings.
 """" Messages, Info, Status
 set ls=2                    " allways show status line
 set vb t_vb=                " Disable all bells.  I hate ringing/flashing.
-set confirm                 " Y-N-C prompt if closing with unsaved changes.
+"set confirm                 " Y-N-C prompt if closing with unsaved changes.
+set hidden
 set showcmd                 " Show incomplete normal mode commands as I type.
 set report=0                " : commands always print changed line count.
 set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
@@ -261,7 +268,7 @@ nnoremap <leader><space> :nohlsearch<cr>
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 
 " Select the item in the list with enter
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " ==========================================================
 " Javascript
@@ -337,6 +344,17 @@ inoremap jj <esc>o
 inoremap kk <esc> a
 inoremap KK <esc>A
 
+"django stuff
+if filereadable('manage.py')
+    au FileType python set ft=python.django
+    au FileType html set ft=htmldjango
+    au FileType text set ft=htmldjango
+    au FileType htmldjango set omnifunc=htmldjangocomplete#CompleteDjango
+endif
+
 "{%  %} tweak for htmldjango
 au FileType htmldjango inoremap {% {% %}<left><left><left>
 au FileType htmldjango set omnifunc=htmldjangocomplete#CompleteDjango
+
+"trim whitespace
+nnoremap <leader>w :%s/\s\+$//<cr>
