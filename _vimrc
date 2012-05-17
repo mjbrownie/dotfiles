@@ -372,3 +372,8 @@ nnoremap <leader>w :%s/\s\+$//<cr>
 
 "ol'school surround map
 vmap s S
+
+"Paste toggle
+set pastetoggle=<f12>
+
+"let g:acp_behaviorSnipmateLength=1
