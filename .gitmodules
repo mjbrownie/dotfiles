@@ -133,3 +133,6 @@
 [submodule "_vim/bundle/surround_django"]
 	path = _vim/bundle/surround_django
 	url = git@github.com:mjbrownie/vim-surround_django.git
+[submodule "_vim/bundle/tagbar"]
+	path = _vim/bundle/tagbar
+	url = git://github.com/majutsushi/tagbar
