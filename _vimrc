@@ -313,9 +313,9 @@ if 'VIRTUAL_ENV' in os.environ:
     execfile(activate_this, dict(__file__=activate_this))
 
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
-
 EOF
 
+map <F11> :!ctags -R -f ./tags `python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"`<CR>
 " Load up virtualenv's vimrc if it exists
 if filereadable($VIRTUAL_ENV . '/.vimrc')
     source $VIRTUAL_ENV/.vimrc
@@ -341,8 +341,9 @@ au BufEnter * call s:diff_maps()
 "kk - move to the end of the line (how often do you type trekking?)
 "jj - move to the next line (indents)
 inoremap jj <esc>o
-inoremap kk <esc> a
+inoremap kk <esc>O
 inoremap KK <esc>A
+inoremap JJ <esc> a
 
 "django stuff
 if filereadable('manage.py')
@@ -350,11 +351,27 @@ if filereadable('manage.py')
     au FileType html set ft=htmldjango
     au FileType text set ft=htmldjango
     au FileType htmldjango set omnifunc=htmldjangocomplete#CompleteDjango
+
+    "Get tag generation out of the way
+    if !filereadable('tags')
+        norm <f11>
+    endif
 endif
 
 "{%  %} tweak for htmldjango
 au FileType htmldjango inoremap {% {% %}<left><left><left>
 au FileType htmldjango set omnifunc=htmldjangocomplete#CompleteDjango
+au FileType python set textwidth=79
+"Pep8 all the time
+au BufWritePost *.py norm \pep
 
 "trim whitespace
 nnoremap <leader>w :%s/\s\+$//<cr>
+
+"ol'school surround map
+vmap s S
+
+"Paste toggle
+set pastetoggle=<f12>
+
+"let g:acp_behaviorSnipmateLength=1
