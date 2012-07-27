@@ -309,20 +309,17 @@ py << EOF
 import os.path
 import sys
 import vim
+
 if 'VIRTUAL_ENV' in os.environ:
     project_base_dir = os.environ['VIRTUAL_ENV']
     sys.path.insert(0, project_base_dir)
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
 
-# default to settings in the environment. TODO newer django versions have
-# different architecture
-sys.path.insert(0,os.getcwd())
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 EOF
 
 map <F11> :!ctags -R -f ./tags `python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"`<CR>
-
 " Load up virtualenv's vimrc if it exists
 if filereadable($VIRTUAL_ENV . '/.vimrc')
     source $VIRTUAL_ENV/.vimrc
@@ -367,6 +364,7 @@ endif
 
 "{%  %} tweak for htmldjango
 au FileType htmldjango inoremap {% {% %}<left><left><left>
+au FileType htmldjango set omnifunc=htmldjangocomplete#CompleteDjango
 au FileType python set textwidth=79
 "Pep8 all the time
 au BufWritePost *.py norm \pep
