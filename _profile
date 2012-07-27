@@ -22,3 +22,9 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
+PATH="$PATH:/var/lib/gems/1.8/bin"
+
+#Stuff I don't want public
+if [ -f "$HOME/.private_shell" ]; then
+    . "$HOME/.private_shell"
+fi
