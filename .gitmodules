@@ -133,3 +133,6 @@
 [submodule "_vim/bundle/surround_django"]
 	path = _vim/bundle/surround_django
 	url = git@github.com:mjbrownie/vim-surround_django.git
+[submodule "_vim/bundle/dpaste"]
+	path = _vim/bundle/dpaste
+	url = https://github.com/vim-scripts/Dpaste.com-Plugin.git
