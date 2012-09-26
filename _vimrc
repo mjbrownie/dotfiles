@@ -197,7 +197,7 @@ set nowrap                  " don't wrap text
 set linebreak               " don't wrap textin the middle of a word
 set autoindent              " always set autoindenting on
 set smartindent             " use smart indent if there is no indent file
-set tabstop=4               " <tab> inserts 4 spaces 
+set tabstop=4               " <tab> inserts 4 spaces
 set shiftwidth=4            " but an indent level is 2 spaces wide.
 set softtabstop=4           " <BS> over an autoindent deletes both spaces.
 set expandtab               " Use spaces, not tabs, for autoindent/tab key.
@@ -245,14 +245,14 @@ set list
 """ Searching and Patterns
 set ignorecase              " Default to using case insensitive searches,
 set smartcase               " unless uppercase letters are used in the regex.
-set smarttab                " Handle tabs more intelligently 
+set smarttab                " Handle tabs more intelligently
 set hlsearch                " Highlight searches by default.
 set incsearch               " Incrementally search while typing a /regex
 
 """" Display
 if has("gui_running")
     colorscheme desert
-    
+
     set guioptions+=aegimtTLlRrb
     set guioptions-=aegimtTLlRrb
 else
@@ -330,8 +330,8 @@ if version >= 703
     set colorcolumn=79
 endif
 
-" Diff 
-" 
+" Diff
+"
 function! s:diff_maps()
     if &diff
         nnoremap <buffer> hhh :diffget 2//<cr>
@@ -345,7 +345,7 @@ au BufEnter * call s:diff_maps()
 "kk - move to the end of the line (how often do you type trekking?)
 "jj - move to the next line (indents)
 inoremap jj <esc>o
-inoremap kk <esc>O
+inoremap kk <esc>a
 inoremap KK <esc>A
 inoremap JJ <esc> a
 

@@ -144,7 +144,11 @@ newKeys conf@(XConfig {XMonad.modMask = modm}) = [
   ((modm, xK_u), spawn "firefox"),
   ((modm, xK_t), spawn "banshee"),
   ((modm, xK_F12), spawn "amixer -q sset Headphone 5%+"),
-  ((modm, xK_F11), spawn "amixer -q sset Headphone 5%-")
+  ((modm, xK_F11), spawn "amixer -q sset Headphone 5%-"),
+  ((modm, xK_F5), spawn "banshee --previous"),
+  ((modm, xK_F6), spawn "banshee --pause"),
+  ((modm, xK_F7), spawn "banshee --play"),
+  ((modm, xK_F8), spawn "bandhee --next")
    ]
  
 -- Dzen config
