@@ -135,6 +135,12 @@ map <leader>j :RopeGotoDefinition<CR>
 
 " Rename whatever the cursor is on (including references to it)
 map <leader>r :RopeRename<CR>
+
+
+"Auto imports For django
+let g:ropevim_autoimport_modules = ["os", "datetime","django"]
+
+
 " ==========================================================
 " Pathogen - Allows us to organize our vim plugins
 " ==========================================================
@@ -316,7 +322,21 @@ if 'VIRTUAL_ENV' in os.environ:
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+#Old school project assumptions. Note This assumes pwd is project dir
+if os.path.exists('settings.py'):
+    os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
+else:
+    #look for django 1.4 style settings eg /<project>/<project>/settings.py
+    #created by a django_admin.py startproject
+    cur_dir = os.path.join(os.getcwd().split('/').pop())
+    if os.path.exists(os.path.join(cur_dir,'settings.py')):
+        os.environ['DJANGO_SETTINGS_MODULE'] = '%s.settings' % cur_dir
+    else:
+        #Your on your own. Set to fail loudly
+        os.environ['DJANGO_SETTINGS_MODULE'] = ''
+
+#add the pwd to sys path as it is not appearing in
+sys.path.insert(0,os.getcwd())
 EOF
 
 map <F11> :!ctags -R -f ./tags `python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"`<CR>
