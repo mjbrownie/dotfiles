@@ -213,7 +213,7 @@ set foldmethod=indent       " allow us to fold on indents
 set foldlevel=99            " don't fold by default
 
 " don't outdent hashes
-inoremap # #
+"inoremap # #
 
 " close preview window automatically when we move around
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
@@ -269,7 +269,7 @@ endif
 map <leader>p "+p
 
 " Quit window on <leader>q
-nnoremap <leader>q :q<CR>
+"nnoremap <leader>q :q<CR>
 "
 " hide matches on <leader>space
 nnoremap <leader><space> :nohlsearch<cr>
@@ -387,7 +387,8 @@ au FileType htmldjango inoremap {% {% %}<left><left><left>
 au FileType htmldjango set omnifunc=htmldjangocomplete#CompleteDjango
 au FileType python set textwidth=79
 "Pep8 all the time
-au BufWritePost *.py norm \pep
+"au BufWritePost *.py norm \pep
+au Filetype python nnoremap \ppp :%!autopep8 -i %<cr>
 
 "trim whitespace
 nnoremap <leader>w :%s/\s\+$//<cr>
@@ -399,3 +400,4 @@ vmap s S
 set pastetoggle=<f12>
 
 "let g:acp_behaviorSnipmateLength=1
+let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,*.pyc"
