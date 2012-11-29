@@ -28,4 +28,5 @@
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
-
+    rec = ! sh -c `(git add -p - $@ && git commit -v) || git reset` -
+	ahead = log origin/master..HEAD --oneline
