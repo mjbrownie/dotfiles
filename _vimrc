@@ -249,11 +249,11 @@ set listchars=tab:>-,trail:-,nbsp:+
 set list
 
 """ Searching and Patterns
-set ignorecase              " Default to using case insensitive searches,
+"set ignorecase              " Default to using case insensitive searches,
 set smartcase               " unless uppercase letters are used in the regex.
 set smarttab                " Handle tabs more intelligently
 set hlsearch                " Highlight searches by default.
-set incsearch               " Incrementally search while typing a /regex
+"set incsearch               " Incrementally search while typing a /regex
 
 """" Display
 if has("gui_running")
@@ -401,3 +401,6 @@ set pastetoggle=<f12>
 
 "let g:acp_behaviorSnipmateLength=1
 let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,*.pyc"
+
+set path+=**/templates/
+set path+=**/static/

@@ -137,3 +137,6 @@
 	path = _vim/bundle/dpaste
 	url = https://github.com/vim-scripts/Dpaste.com-Plugin.git
 	url = https://github.com/mjbrownie/vim-surround_django.git
+[submodule "_vim/bundle/vim-ipython"]
+	path = _vim/bundle/vim-ipython
+	url = https://github.com/ivanov/vim-ipython.git
