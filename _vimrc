@@ -313,8 +313,12 @@ let g:pyflakes_use_quickfix = 0
 if has("python")
 py << EOF
 import os.path
+from os.path import dirname
+from os.path import join as pjoin
 import sys
 import vim
+
+sys.path.insert(0, os.getcwd())
 
 if 'VIRTUAL_ENV' in os.environ:
     project_base_dir = os.environ['VIRTUAL_ENV']
@@ -334,6 +338,21 @@ else:
     else:
         #Your on your own. Set to fail loudly
         os.environ['DJANGO_SETTINGS_MODULE'] = ''
+
+
+if not os.environ['DJANGO_SETTINGS_MODULE'] == '':
+    from django.core.management import setup_environ
+    from django.conf import settings
+    #setup_environ(settings)
+
+    for app in settings.INSTALLED_APPS:
+        #try:
+        a = __import__(app)
+        vim.command('set path+=' + pjoin(dirname(a.__file__) , 'templates'))
+        vim.command('set path+=' + pjoin(dirname(a.__file__) , 'static'))
+            #except:
+            #raise
+            #pass
 
 #add the pwd to sys path as it is not appearing in
 sys.path.insert(0,os.getcwd())
@@ -388,7 +407,7 @@ au FileType htmldjango set omnifunc=htmldjangocomplete#CompleteDjango
 au FileType python set textwidth=79
 "Pep8 all the time
 "au BufWritePost *.py norm \pep
-au Filetype python nnoremap \ppp :%!autopep8 -i %<cr>
+au Filetype python nnoremap \ppp :%!autopep8 --ignore=E128 -i %<cr>
 
 "trim whitespace
 nnoremap <leader>w :%s/\s\+$//<cr>
@@ -404,3 +423,17 @@ let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,*.pyc"
 
 set path+=**/templates/
 set path+=**/static/
+
+"Ignore unused variable warnings whenever locals() is being used in a file
+function! LocalsWarningSuppress()
+    if ( search("locals()",'nw') > 0)
+        let g:syntastic_python_checker='flake8 --ignore=W806'
+    else
+        let g:syntastic_python_checker='flake8'
+    endif
+endfunction
+
+au BufWritePre **/views*py call LocalsWarningSuppress()
+au BufWritePre **/templatetags*py call LocalsWarningSuppress()
+
+set siso=1

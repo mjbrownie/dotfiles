@@ -140,3 +140,6 @@
 [submodule "_vim/bundle/vim-ipython"]
 	path = _vim/bundle/vim-ipython
 	url = https://github.com/ivanov/vim-ipython.git
+[submodule "_vim/bundle/django_helper"]
+	path = _vim/bundle/django_helper
+	url = git@github.com:mjbrownie/django_helper.vim.git

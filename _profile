@@ -28,3 +28,7 @@ PATH="$PATH:/var/lib/gems/1.8/bin"
 if [ -f "$HOME/.private_shell" ]; then
     . "$HOME/.private_shell"
 fi
+export LANGUAGE="en_AU:en"
+export LC_MESSAGES="en_AU.UTF-8"
+export LC_CTYPE="en_AU.UTF-8"
+export LC_COLLATE="en_AU.UTF-8"
