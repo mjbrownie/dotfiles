@@ -238,7 +238,7 @@ set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
 set ruler                   " Show some info, even without statuslines.
 set laststatus=2            " Always show statusline, even if only 1 window.
 if has('python')
-    set stl=%-f%r\ %2*%m%*\ \ \ \ %1*%{TagInStatusLine()}%*%=[%l:%c]\ %{fugitive#statusline()}\ \ [buf\ %n]
+    au FileType python set stl=%-f%r\ %2*%m%*\ \ \ \ %1*%{TagInStatusLine()}%*%=[%l:%c]\ %{fugitive#statusline()}\ \ [buf\ %n]
 else
     set stl=%-f%r\ %2*%m%*\ \ \ \ [%l:%c]\ %{fugitive#statusline()}\ \ [buf\ %n]
 endif
@@ -335,6 +335,8 @@ else:
         #Your on your own. Set to fail loudly
         os.environ['DJANGO_SETTINGS_MODULE'] = ''
 
+#os.environ.setdefault("DJANGO_CONFIGURATION", "Settings")
+
 #add the pwd to sys path as it is not appearing in
 sys.path.insert(0,os.getcwd())
 EOF
@@ -373,6 +375,7 @@ inoremap JJ <esc> a
 if filereadable('manage.py')
     au FileType python set ft=python.django
     au FileType html set ft=htmldjango
+    au FileType haml set ft=htmldjango
     au FileType text set ft=htmldjango
     au FileType htmldjango set omnifunc=htmldjangocomplete#CompleteDjango
 
