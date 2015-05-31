@@ -335,7 +335,6 @@ else:
         #Your on your own. Set to fail loudly
         os.environ['DJANGO_SETTINGS_MODULE'] = ''
 
-#os.environ.setdefault("DJANGO_CONFIGURATION", "Settings")
 
 #add the pwd to sys path as it is not appearing in
 sys.path.insert(0,os.getcwd())
@@ -345,6 +344,9 @@ map <F11> :!ctags -R -f ./tags `python -c "from distutils.sysconfig import get_p
 " Load up virtualenv's vimrc if it exists
 if filereadable($VIRTUAL_ENV . '/.vimrc')
     source $VIRTUAL_ENV/.vimrc
+endif
+if filereadable('.vimrc')
+    source .vimrc
 endif
 endif
 
@@ -407,3 +409,7 @@ let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,*.pyc"
 
 set path+=**/templates/
 set path+=**/static/
+let g:UltiSnipsExpandTrigger="<c-j>""
+let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+inoremap <c-o> <c-x><c-o>

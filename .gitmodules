@@ -140,3 +140,6 @@
 [submodule "_vim/bundle/emmet-vim"]
 	path = _vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "_vim/bundle/ultisnips"]
+	path = _vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
