@@ -149,3 +149,6 @@
 [submodule "_vim/bundle/zencoding-django-snippets"]
 	path = _vim/bundle/zencoding-django-snippets
 	url = https://github.com/andreyfedoseev/zen-coding-django-snippets
+[submodule "_vim/bundle/youcompleteme"]
+	path = _vim/bundle/youcompleteme
+	url = https://github.com/Valloric/YouCompleteMe.git
