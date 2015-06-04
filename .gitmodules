@@ -143,3 +143,9 @@
 [submodule "_vim/bundle/ultisnips"]
 	path = _vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "_vim/bundle/ag"]
+	path = _vim/bundle/ag
+	url = https://github.com/rking/ag.vim.git
+[submodule "_vim/bundle/zencoding-django-snippets"]
+	path = _vim/bundle/zencoding-django-snippets
+	url = https://github.com/andreyfedoseev/zen-coding-django-snippets
