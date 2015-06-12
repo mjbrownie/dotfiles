@@ -119,7 +119,7 @@
 	path = _vim/bundle/smartinput
 	url = https://github.com/kana/vim-smartinput
 [submodule "_vim/bundle/htmldjangocomplete"]
-	path = _vim/bundle/htmldjangocomplete
+	path = _vim/old_bundle/htmldjangocomplete
 	url = https://github.com/mjbrownie/vim-htmldjango_omnicomplete.git
 [submodule "_vim/bundle/html5"]
 	path = _vim/bundle/html5
