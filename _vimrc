@@ -333,7 +333,7 @@ else:
         os.environ['DJANGO_SETTINGS_MODULE'] = '%s.settings' % cur_dir
     else:
         #Your on your own. Set to fail loudly
-        os.environ['DJANGO_SETTINGS_MODULE'] = ''
+        os.environ['DJANGO_SETTINGS_MODULE'] = 'webapp.settings'
 
 
 #add the pwd to sys path as it is not appearing in
@@ -342,12 +342,12 @@ EOF
 
 map <F11> :!ctags -R -f ./tags `python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"`<CR>
 " Load up virtualenv's vimrc if it exists
-if filereadable($VIRTUAL_ENV . '/.vimrc')
-    source $VIRTUAL_ENV/.vimrc
-endif
-if filereadable('.vimrc')
-    source .vimrc
-endif
+ "if $VIRTUAL_ENV != '' &&  filereadable($VIRTUAL_ENV . '/.vimrc')
+     "source $VIRTUAL_ENV/.vimrc
+ "endif
+ "if filereadable('.vimrc')
+     "source .vimrc
+ "endif
 endif
 
 if version >= 703
