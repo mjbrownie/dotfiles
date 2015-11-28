@@ -152,3 +152,12 @@
 [submodule "_vim/bundle/youcompleteme"]
 	path = _vim/bundle/youcompleteme
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "_vim/bundle/tern_for_vim"]
+	path = _vim/bundle/tern_for_vim
+	url = https://github.com/marijnh/tern_for_vim.git
+[submodule "_vim/bundle/vim-jsx"]
+	path = _vim/bundle/vim-jsx
+	url = https://github.com/mxw/vim-jsx.git
+[submodule "_vim/bundle/vim_react_snippets"]
+	path = _vim/bundle/vim_react_snippets
+	url = https://github.com/justinj/vim-react-snippets.git

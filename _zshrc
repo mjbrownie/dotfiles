@@ -1,6 +1,15 @@
 source ~/.zsh/git-prompt/zshrc.sh
+fpath=(~/.zsh/zsh-completions/src $fpath)
 # an example prompt
 PROMPT='mac %~%b$(git_super_status) %# '
 zstyle ':completion:::git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
 
 fpath=(/usr/local/share/zsh/site-functions $fpath)
+
+export PATH=~/bin:$PATH
+#eval "$(scmpuff init -s)"
+
+alias psd="open -a /Applications/Adobe\ Photoshop\ CC\ 2014/Adobe\ Photoshop\ CC\ 2014.app"
+alias vi=/usr/local/bin/vim
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh

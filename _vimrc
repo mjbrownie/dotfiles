@@ -71,7 +71,7 @@ fu! SplitScroll()
     :set scrollbind
 endfu
 
-nmap <leader>sb :call SplitScroll()<CR>
+"nmap <leader>sb :call SplitScroll()<CR>
 
 set t_Co=256
 
@@ -125,7 +125,7 @@ map <leader>n :NERDTreeToggle<CR>
 " Run command-t file search
 map <leader>f :CommandT<CR>
 " Ack searching
-nmap <leader>a <Esc>:Ack!
+nmap <leader>a <Esc>:Ag 
 
 " Load the Gundo window
 map <leader>g :GundoToggle<CR>
@@ -167,12 +167,17 @@ set noerrorbells
 set vb t_vb=
 
 " Ignore these files when completing
-set wildignore+=*.o,*.obj,.git,*.pyc
+set wildignore+=*.o,*.obj,.git,*.pyc,*.pyo,*.so
 set wildignore+=eggs/**
 set wildignore+=*.egg-info/**
 "local virtualenv env convention
-set wildignore+=env/bin,env/bin,env/include,env/share
-set wildignore+=env/local,env/lib
+set wildignore+=env/bin/**,env/include/**,env/share/**
+set wildignore+=env/local/**
+set wildignore+=env/**/*.h
+set wildignore+=**/cache/**
+set wildignore+=**/CACHE/**
+set wildignore+=*.jpg,*.gif,*.png
+set wildignore+=env/lib/*/encodings/**,env/lib/*/config/**,**/IPython/**
 
 
 set grepprg=ack         " replace the default grep program with ack
@@ -336,19 +341,15 @@ else:
         os.environ['DJANGO_SETTINGS_MODULE'] = 'webapp.settings'
 
 
+os.environ['DJANGO_SETTINGS_MODULE'] = 'digiswaplive.settings'
+os.environ.setdefault("DJANGO_CONFIGURATION", "Settings")
+
 #add the pwd to sys path as it is not appearing in
 sys.path.insert(0,os.getcwd())
 EOF
 
 map <F11> :!ctags -R -f ./tags `python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"`<CR>
 " Load up virtualenv's vimrc if it exists
- "if $VIRTUAL_ENV != '' &&  filereadable($VIRTUAL_ENV . '/.vimrc')
-     "source $VIRTUAL_ENV/.vimrc
- "endif
- "if filereadable('.vimrc')
-     "source .vimrc
- "endif
-endif
 
 if version >= 703
     set colorcolumn=79
@@ -402,7 +403,7 @@ nnoremap <leader>w :%s/\s\+$//<cr>
 vmap s S
 
 "Paste toggle
-set pastetoggle=<f12>
+set pastetoggle=\pt
 
 "let g:acp_behaviorSnipmateLength=1
 let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,*.pyc"
@@ -413,3 +414,59 @@ let g:UltiSnipsExpandTrigger="<c-j>""
 let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 inoremap <c-o> <c-x><c-o>
+
+function! StartUp()
+    if 0 == argc()
+        NERDTree
+    end
+endfunction
+
+autocmd VimEnter * call StartUp()
+
+endif
+
+nnoremap \s :Ag <c-r><c-w><cr>
+vnoremap \s y:Ag "<c-r><c-0><cr>"
+
+function! GetBufferList()
+  redir =>buflist
+  silent! ls!
+  redir END
+  return buflist
+endfunction
+
+function! ToggleList(bufname, pfx)
+  let buflist = GetBufferList()
+  for bufnum in map(filter(split(buflist, '\n'), 'v:val =~ "'.a:bufname.'"'), 'str2nr(matchstr(v:val, "\\d\\+"))')
+    if bufwinnr(bufnum) != -1
+      exec(a:pfx.'close')
+      return
+    endif
+  endfor
+  if a:pfx == 'l' && len(getloclist(0)) == 0
+      echohl ErrorMsg
+      echo "Location List is Empty."
+      return
+  endif
+  let winnr = winnr()
+  exec(a:pfx.'open')
+  if winnr() != winnr
+    wincmd p
+  endif
+endfunction
+
+nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
+nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c')<CR>
+
+set mouse=a
+
+ if $VIRTUAL_ENV != '' &&  filereadable($VIRTUAL_ENV . '/.project.vim')
+     source $VIRTUAL_ENV/.project.vim
+ endif
+ if filereadable('.project.vim')
+     source .project.vim
+ endif
+
+let g:CommandTMaxFiles=50000
+let g:CommandTFileScanner='find'
+let g:CommandTMaxDepth=100
