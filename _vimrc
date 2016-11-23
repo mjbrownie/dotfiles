@@ -51,6 +51,8 @@
 " Shortcuts
 " ==========================================================
 set nocompatible              " Don't be compatible with vi
+set nomodeline
+set modelines=0
 
 "let mapleader=","             " change the leader to be a comma vs slash
 
@@ -123,7 +125,7 @@ imap <C-W> <C-O><C-W>
 map <leader>n :NERDTreeToggle<CR>
 
 " Run command-t file search
-map <leader>f :CommandT<CR>
+map <leader>f :FZF<CR>
 " Ack searching
 nmap <leader>a <Esc>:Ag 
 
@@ -148,6 +150,7 @@ let g:ropevim_autoimport_modules = ["os", "datetime","django"]
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+set rtp+=~/.fzf
 
 " ==========================================================
 " Basic Settings
@@ -178,6 +181,9 @@ set wildignore+=**/cache/**
 set wildignore+=**/CACHE/**
 set wildignore+=*.jpg,*.gif,*.png
 set wildignore+=env/lib/*/encodings/**,env/lib/*/config/**,**/IPython/**
+set wildignore+=live/**
+set wildignore+=mockups/**
+set wildignore+=*/migrations/**
 
 
 set grepprg=ack         " replace the default grep program with ack
@@ -341,8 +347,6 @@ else:
         os.environ['DJANGO_SETTINGS_MODULE'] = 'webapp.settings'
 
 
-os.environ['DJANGO_SETTINGS_MODULE'] = 'digiswaplive.settings'
-os.environ.setdefault("DJANGO_CONFIGURATION", "Settings")
 
 #add the pwd to sys path as it is not appearing in
 sys.path.insert(0,os.getcwd())
@@ -354,6 +358,8 @@ map <F11> :!ctags -R -f ./tags `python -c "from distutils.sysconfig import get_p
 if version >= 703
     set colorcolumn=79
 endif
+
+set rtp+=~/.fzf
 
 " Diff
 "
@@ -403,7 +409,8 @@ nnoremap <leader>w :%s/\s\+$//<cr>
 vmap s S
 
 "Paste toggle
-set pastetoggle=\pt
+set pastetoggle=,pt
+
 
 "let g:acp_behaviorSnipmateLength=1
 let g:DirDiffExcludes = "CVS,*.class,*.exe,.*.swp,.git,*.pyc"
@@ -415,13 +422,13 @@ let g:UltiSnipsJumpForwardTrigger  = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 inoremap <c-o> <c-x><c-o>
 
-function! StartUp()
-    if 0 == argc()
-        NERDTree
-    end
-endfunction
+" function! StartUp()
+"     if 0 == argc()
+"         NERDTree
+"     end
+" endfunction
 
-autocmd VimEnter * call StartUp()
+" autocmd VimEnter * call StartUp()
 
 endif
 
@@ -458,7 +465,7 @@ endfunction
 nmap <silent> <leader>l :call ToggleList("Location List", 'l')<CR>
 nmap <silent> <leader>q :call ToggleList("Quickfix List", 'c')<CR>
 
-set mouse=a
+set mouse=i
 
  if $VIRTUAL_ENV != '' &&  filereadable($VIRTUAL_ENV . '/.project.vim')
      source $VIRTUAL_ENV/.project.vim
@@ -470,3 +477,18 @@ set mouse=a
 let g:CommandTMaxFiles=50000
 let g:CommandTFileScanner='find'
 let g:CommandTMaxDepth=100
+
+abbr improt import
+abbr ipmort import
+
+let g:syntastic_javascript_checkers = ['eslint']
+
+"let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
+let g:syntastic_javascript_checkers = ['eslint']
+
+
+imap <c-x><c-l> <Plug>(fzf-complete-line)
+
+let g:ag_prg="ag -U --vimgrep --smart-case"
+

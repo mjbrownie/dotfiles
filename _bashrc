@@ -179,3 +179,9 @@ export DOCKER_CERT_PATH=/Users/michael/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 
 export PATH=~/bin/:$PATH
+
+[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc

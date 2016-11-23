@@ -13,3 +13,19 @@ alias psd="open -a /Applications/Adobe\ Photoshop\ CC\ 2014/Adobe\ Photoshop\ CC
 alias vi=/usr/local/bin/vim
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_CERT_PATH="/Users/michael/.docker/machine/machines/standard"
+export DOCKER_MACHINE_NAME="standard"
+
+#export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi'
+#
+export HISTFILE=~/.zsh_history
+export SAVEHIST=10000000
+export HISTSIZE=10000000
